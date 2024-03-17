@@ -1,0 +1,15 @@
+# Archivos y carpetas generados automáticamente
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+*.userprefs
+*.dll
+*.exe
+
+# Dependencias y paquetes NuGet
+packages/
+*.nupkg
