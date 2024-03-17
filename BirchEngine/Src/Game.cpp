@@ -14,7 +14,7 @@ Manager manager;
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
 
-SDL_Rect Game::camera = { 0,0,1200,1350 };
+SDL_Rect Game::camera = { 0,0,1550,1350 };
 
 // 
 AssetManager* Game::assets = new AssetManager(&manager);
@@ -61,7 +61,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		std::cout << "Error : SDL_TTF" << std::endl;
 	}
 
-	assets->AddTexture("terrain", "assets/terrain_ss.png");
+	assets->AddTexture("terrain", "assets_nosotros/mapa_ss.png");
 	assets->AddTexture("player", "assets_nosotros/Pikachu_Spritesheet.png");
 	assets->AddTexture("projectile", "assets/proj.png");
 	assets->AddTexture("Object", "assets_nosotros/coleccionable5.png");
@@ -72,9 +72,9 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	map = new Map("terrain", 3, 32);
 	//ecs implementation
 
-	map->LoadMap("assets/map.map", 25, 20);
+	map->LoadMap("assets_nosotros/mapa.map", 25, 20);
 
-	player.addComponent<TransformComponent>(800.0f, 640.0f, 32, 32, 4);
+	player.addComponent<TransformComponent>(700.0f, 540.0f, 32, 32, 4);
 	player.addComponent<SpriteComponent>("player", true);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");

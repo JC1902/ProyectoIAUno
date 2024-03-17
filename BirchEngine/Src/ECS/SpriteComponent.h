@@ -35,16 +35,25 @@ public:
 	SpriteComponent(std::string id, bool isAnimated)
 	{
 		animated = isAnimated;
-
-		Animation idle = Animation(0, 3, 100);
-		Animation walk = Animation(1, 8, 100);
+		
+		Animation idle = Animation(1, 2, 200);
+		Animation walkArriba = Animation(0, 2, 200);
+		Animation walkAbajo = Animation(1, 2, 200);
+		Animation walkDerecha = Animation(3, 2, 200);
+		Animation walkIzquierda = Animation(2, 2, 200);
 
 		animations.emplace("Idle", idle);
-		animations.emplace("Walk", walk);
+		animations.emplace("WalkArriba", walkArriba);
+		animations.emplace("WalkAbajo", walkAbajo);
+		animations.emplace("WalkDerecha", walkDerecha);
+		animations.emplace("WalkIzquierda", walkIzquierda);
+
 
 		Play("Idle");
 
 		setTex(id);
+
+
 	}
 
 	~SpriteComponent()
@@ -75,7 +84,7 @@ public:
 		if (animated)
 		{
 			srcRect.y = srcRect.h * static_cast<int>((SDL_GetTicks() / speed) % frames);
-			//srcRect.x = srcRect.w + 2 * static_cast<int>((SDL_GetTicks() / speed) % frames); 
+			srcRect.x = srcRect.w * static_cast<int>((SDL_GetTicks() / speed) % frames); 
 		}
 
 		srcRect.y = animIndex * transform->height;

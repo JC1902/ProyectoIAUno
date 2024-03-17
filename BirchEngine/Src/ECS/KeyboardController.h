@@ -27,21 +27,21 @@ public:
 			{
 			case SDLK_w:
 				transform->velocity.y = -1;
-				sprite->Play("Walk");
+				sprite->Play("WalkArriba");
 				break;
 			case SDLK_a:
 				transform->velocity.x = -1;
-				sprite->Play("Walk");
-				sprite->spriteFlip = SDL_FLIP_HORIZONTAL;
+				sprite->Play("WalkIzquierda");
+				//sprite->spriteFlip = SDL_FLIP_HORIZONTAL;
 				break;
 			case SDLK_d:
 				transform->velocity.x = 1;
-				sprite->Play("Walk");
+				sprite->Play("WalkDerecha");
 				break;
 			case SDLK_s:
 				transform->velocity.y = 1;
-				sprite->Play("Walk");
-				
+				sprite->Play("WalkAbajo");
+
 				break;
 			default:
 				break;
@@ -59,7 +59,7 @@ public:
 			case SDLK_a:
 				transform->velocity.x = 0;
 				sprite->Play("Idle");
-				sprite->spriteFlip = SDL_FLIP_NONE;
+				//sprite->spriteFlip = SDL_FLIP_NONE;
 				break;
 			case SDLK_d:
 				transform->velocity.x = 0;
