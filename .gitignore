@@ -7,7 +7,6 @@ obj/
 *.cache
 *.log
 *.userprefs
-*.dll
 *.exe
 
 # Dependencias y paquetes NuGet

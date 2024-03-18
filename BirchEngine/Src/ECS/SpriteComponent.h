@@ -52,8 +52,6 @@ public:
 		Play("Idle");
 
 		setTex(id);
-
-
 	}
 
 	~SpriteComponent()

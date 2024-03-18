@@ -21,6 +21,7 @@ AssetManager* Game::assets = new AssetManager(&manager);
 
 bool Game::isRunning = false;
 int playerHealth = 3;
+int energia = 100;
 
 auto& player(manager.addEntity());
 auto& label(manager.addEntity());
@@ -64,8 +65,8 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	assets->AddTexture("terrain", "assets_nosotros/mapa_ss.png");
 	assets->AddTexture("player", "assets_nosotros/Pikachu_Spritesheet.png");
 	assets->AddTexture("projectile", "assets/proj.png");
-	assets->AddTexture("Object", "assets_nosotros/coleccionable5.png");
-	assets->AddTexture("enemy", "assets_nosotros/poso_de_Voltorbs.gif");
+	assets->AddTexture("Object", "assets_nosotros/cc01.png");
+	assets->AddTexture("enemy", "assets_nosotros/MUK_ch_d.png");
 
 	assets->AddFont("arial", "assets/arial.ttf", 16);
 
@@ -74,7 +75,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 
 	map->LoadMap("assets_nosotros/mapa.map", 25, 20);
 
-	player.addComponent<TransformComponent>(700.0f, 540.0f, 32, 32, 4);
+	player.addComponent<TransformComponent>(700.0f, 540.0f, 32, 32, 2);
 	player.addComponent<SpriteComponent>("player", true);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
@@ -91,8 +92,8 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	assets->CreateProjectile(Vector2D(400, 600), Vector2D(2, 1), 200, 2, "projectile");
 	assets->CreateProjectile(Vector2D(600, 600), Vector2D(2, -1), 200, 2, "projectile");
 
-	assets->CreateObject(Vector2D(760, 785), "Object");
-	assets->CreateEnemy(Vector2D(790, 800), "enemy");
+	assets->CreateObject(Vector2D(612, 785), "Object");
+	assets->CreateEnemy(Vector2D(520, 800), "enemy");
 
 }
 //----------------------------------------------------------------------------------------------
@@ -105,7 +106,6 @@ auto& enemies(manager.getGroup(Game::groupEnemies));
 //----------------------------------------------------------------------------------------------
 void Game::handleEvents()
 {
-
 	SDL_PollEvent(&event);
 
 	switch (event.type)
